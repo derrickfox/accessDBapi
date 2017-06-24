@@ -1,0 +1,25 @@
+{
+  "name": "accessdbapi",
+  "namespace": "",
+  "main": "./",
+  "version": "v0.17.624",
+  "description": "To demostrate API connectivity between an Access database and NodeJS.",
+  "private": true,
+  "contributors": "https://github.com/LabShare/accessdbapi/graphs/contributors",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LabShare/accessdbapi.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LabShare/accessdbapi/issues"
+  },
+  "license": "MIT",
+  "packageDependencies": {
+    "lsc": "*",
+    "services": "*"
+  },
+  "dependencies": {
+    "lsc": "https://github.com/LabShare/lsc",
+    "services": "https://github.com/LabShare/services"
+  }
+}
