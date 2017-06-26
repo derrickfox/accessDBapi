@@ -1,25 +1,35 @@
 {
-  "name": "accessdbapi",
+  "name": "accessDBapi",
   "namespace": "",
   "main": "./",
-  "version": "v0.17.624",
-  "description": "To demostrate API connectivity between an Access database and NodeJS.",
+  "scripts": {
+    "test": "jasmine JASMINE_CONFIG_PATH=./test/lib/jasmine.json",
+    "coverage": "istanbul cover jasmine JASMINE_CONFIG_PATH=./test/lib/jasmine.json"
+  },
+  "version": "v0.17.614",
+  "description": "Demoing LabShare APIs",
   "private": true,
-  "contributors": "https://github.com/LabShare/accessdbapi/graphs/contributors",
+  "contributors": "",
   "repository": {
     "type": "git",
-    "url": "https://github.com/LabShare/accessdbapi.git"
+    "url": ""
   },
   "bugs": {
-    "url": "https://github.com/LabShare/accessdbapi/issues"
+    "url": ""
   },
   "license": "MIT",
   "packageDependencies": {
-    "lsc": "*",
-    "services": "*"
+    "ls-shell": "*"
   },
   "dependencies": {
-    "lsc": "https://github.com/LabShare/lsc",
-    "services": "https://github.com/LabShare/services"
+    "handlebars": "^4.0.10",
+    "jasmine": "^2.6.0",
+    "ls-facility": "https://github.com/LabShare/facility",
+    "ls-shell": "https://github.com/LabShare/shell.git",
+    "node-adodb": "^3.0.3",
+    "services": "https://github.com/LabShare/services.git"
+  },
+  "devDependencies": {
+    "istanbul": "^0.4.5"
   }
 }
