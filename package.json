@@ -24,6 +24,7 @@
   "dependencies": {
     "handlebars": "^4.0.10",
     "jasmine": "^2.6.0",
+    "lodash": "^4.17.4",
     "ls-facility": "https://github.com/LabShare/facility",
     "ls-shell": "https://github.com/LabShare/shell.git",
     "node-adodb": "^3.0.3",
