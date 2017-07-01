@@ -107,7 +107,7 @@ connection
 
 function getAllUsers(request, response, next) {
 
-        connection
+    connection
         .query('SELECT * FROM [ContactsTable]')
         .on('done', function (data) {
             response.send(data);
@@ -117,8 +117,8 @@ function getAllUsers(request, response, next) {
 function getSpecificUser(request, response, next, id) {
     connection
         .query( 'SELECT *' +
-                'FROM [ContactsTable]' +
-                'WHERE id=' + id + ';')
+            'FROM [ContactsTable]' +
+            'WHERE id=' + id + ';')
         .on('done', function (data){
             response.send(data);
         });
