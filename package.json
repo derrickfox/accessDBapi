@@ -28,6 +28,8 @@
     "ls-facility": "https://github.com/LabShare/facility",
     "ls-shell": "https://github.com/LabShare/shell.git",
     "node-adodb": "^3.0.3",
+    "nodeify": "^1.0.1",
+    "q": "^1.5.0",
     "services": "https://github.com/LabShare/services.git"
   },
   "devDependencies": {

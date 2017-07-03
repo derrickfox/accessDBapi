@@ -22,24 +22,38 @@ const myService = new require('../lib/testLIB')();
 
 let helloService = module.exports;
 
+function success(resp) {
+    return function (result) {
+        let respObj = {};
+        respObj = result;
+        resp.send(respObj);
+    }
+}
+
 function getRequest(request, response, next) {
-    response.send('Hello Tim! Let me know what to do next! :)');
+    response.send('From testAPI');
 }
 
 function getAllUsers(request, response, next) {
-    let returnedJSON = myService.getAllUsers();
+
+    let returnedJSON = myService.testLibFunc();
+    console.log("First getAllUsers console.log");
+    console.log(returnedJSON);
     if(!request){
         response.send('Something went wrong. No request made')
     }else{
+        //response.set('Content-Type', 'text/html');
+
+        console.log("Inside getAllUsers() from testAPI file");
         response.send(returnedJSON);
+        console.log("The response was just sent from the testAPI file")
     }
 }
 
 helloService.routes = [
-    { path: '/hello', httpMethod: 'GET', middleware: getRequest },
-    { path: '/getAll', httpMethod: 'GET', middleware: getAllUsers }
+    { path: '/test', httpMethod: 'GET', middleware: getRequest },
+    { path: '/getAll2', httpMethod: 'GET', middleware: getAllUsers }
 ]
-
 
 
 

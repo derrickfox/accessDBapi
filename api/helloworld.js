@@ -75,7 +75,7 @@
 var helloService = module.exports;
 
 function getRequest(request, response, next) {
-    response.send('Hello Tim! Let me know what to do next! :)');
+    response.send('From helloworld');
 }
 
 helloService.routes = [
@@ -97,13 +97,13 @@ ADODB.debug = true;
 // Connect to the MS Access DB
 var connection = ADODB.open('Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\foxdm2\\Desktop\\ContactsDB.accdb;Persist Security Info=False;');
 
-// Query the DB
+// // Query the DB
 connection
     .query('SELECT * FROM [ContactsTable];')
     .on('done', function (data){
-        console.log('Result:'.green.bold, data);
+        //console.log('Result:'.green.bold, data);
     });
-////////
+// ////////
 
 function getAllUsers(request, response, next) {
 
