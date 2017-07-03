@@ -17,7 +17,7 @@ function getAll(request, response, next) {
 function createNew(request, response, next) {
     contactsLogic.createNew()
         .then(function (data) {
-            request.send(data);
+            response.send(data);
         })
         .catch(function (err) {
             response.status(500).send({error: 'ERROR from createNew() function: ' + err})
@@ -27,7 +27,7 @@ function createNew(request, response, next) {
 function deleteContact(request, response, next) {
     contactsLogic.deleteContact({_id: request.params.id})
         .then(function () {
-            request.send({_id: request.params.id});
+            response.send({_id: request.params.id});
         })
         .catch(function (err) {
             response.status(500).send({error: 'ERROR from deleteContact() function: ' + err})
@@ -37,7 +37,7 @@ function deleteContact(request, response, next) {
 function updateContact(request, response, next) {
     contactsLogic.updateContact({_id: request.params.id})
         .then(function () {
-            request.send({_id: request.params.id});
+            response.send({_id: request.params.id});
         })
         .catch(function (err) {
             response.status(500).send({error: 'ERROR from updateContact() function:' + err})
