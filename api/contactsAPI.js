@@ -15,7 +15,7 @@ function getAll(request, response, next) {
 };
 
 function createNew(request, response, next) {
-    contactsLogic.createNew()
+    contactsLogic.createNew(request.body)
         .then(function (data) {
             response.send(data);
         })
@@ -35,7 +35,7 @@ function deleteContact(request, response, next) {
 }
 
 function updateContact(request, response, next) {
-    contactsLogic.updateContact({_id: request.params.id})
+    contactsLogic.updateContact({_id: request.params.id}, request.body)
         .then(function () {
             response.send({_id: request.params.id});
         })
@@ -47,7 +47,6 @@ function updateContact(request, response, next) {
 function getOneContact(request, response, next) {
     contactsLogic.getOne({_id: request.params.id})
         .then(function (data) {
-            //request.send({_id: request.params.id});
             response.send(data)
         })
         .catch(function (err) {
@@ -56,9 +55,9 @@ function getOneContact(request, response, next) {
 }
 
 apiService.routes = [
-    { path: '/getAll', httpMethod: 'GET', middleware: getAll },
-    { path: '/new', httpMethod: 'POST', middleware: createNew },
-    { path: '/delete/:id', httpMethod: 'DELETE', middleware: deleteContact },
-    { path: '/update/:id', httpMethod: 'PATCH', middleware: updateContact},
-    { path: '/getOne/:id', httpMethod: 'GET', middleware: getOneContact}
+    { path: '/contacts', httpMethod: 'GET', middleware: getAll },
+    { path: '/contacts', httpMethod: 'POST', middleware: createNew },
+    { path: '/contacts/:id', httpMethod: 'DELETE', middleware: deleteContact },
+    { path: '/contacts/:id', httpMethod: 'PUT', middleware: updateContact},
+    { path: '/contacts/:id', httpMethod: 'GET', middleware: getOneContact}
 ]
