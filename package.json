@@ -3,8 +3,8 @@
   "namespace": "",
   "main": "./",
   "scripts": {
-    "test": "jasmine JASMINE_CONFIG_PATH=./test/lib/jasmine.json",
-    "coverage": "istanbul cover jasmine JASMINE_CONFIG_PATH=./test/lib/jasmine.json"
+    "test": "jasmine JASMINE_CONFIG_PATH=./test/jasmine.json",
+    "coverage": "istanbul cover jasmine JASMINE_CONFIG_PATH=./test/jasmine.json"
   },
   "version": "v0.17.614",
   "description": "Demoing LabShare APIs",
