@@ -1,9 +1,15 @@
 let assert = require('chai').assert;
 let superagent = require('superagent');
-
+let Q = require('q');
 let testID, lastID;
+let libOperations = require('../../lib/contactsLogic');
+
+beforeEach(function () {
+    let returnedResult = 1;
+});
 
 describe('Testing of the Access DB API', function () {
+
 
     it('should test receiving all contacts from Access', function (done) {
         superagent.get("http://localhost:8601/accessDBapi/contacts").end(function (err, res) {
@@ -20,6 +26,11 @@ describe('Testing of the Access DB API', function () {
             assert.notEqual(res.body, null);
             return done();
         })
+    });
+
+    it('does any test work?', function () {
+        let testVar = 'Working';
+        assert.equal(testVar, 'Working');
     });
 
     it('should create a new contact into the Access db', function (done) {
@@ -67,12 +78,30 @@ describe('Testing of the Access DB API', function () {
         superagent.get("http://localhost:8601/accessDBapi/contacts").end(function (err, res) {
             let lastArrayIndex = res.body.length - 1;
             lastID = res.body[lastArrayIndex].ID;
-            superagent.delete("http://localhost:8601/accessDBapi/contacts/" + lastID +"").end(function (err, res) {
+            superagent.delete("http://localhost:8601/accessDBapi/contacts/" + lastID +"").then(function (err, res) {
                 assert.equal(res.status, 200);
             });
             return done();
         })
     });
+
+    it('should not equal null', function (done) {
+
+        let callback = function (err, result) {
+            if(err){
+                console.log(err);
+                done();
+            }
+            if(result){
+                console.log(result);
+                assert.notEqual(result, null);
+                done();
+            }
+        };
+
+        libOperations().showAll(callback);
+    });
+
 });
 
 
