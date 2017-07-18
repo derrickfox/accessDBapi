@@ -3,7 +3,7 @@ let superagent = require('superagent');
 let lastID;
 let libOperations = require('../../../lib/contactsLogic');
 
-describe('Testing of the Access DB API', function () {
+describe('Unit testing the business logic of the Access DB API', function () {
 
     it('showAll() should not equal null', function (done) {
         let callback = function (err, result) {
