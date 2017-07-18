@@ -3,8 +3,10 @@ let superagent = require('superagent');
 let lastID;
 let libOperations = require('../../../lib/contactsLogic');
 
+// Testing the business logic of the contacts
 describe('Unit testing the business logic of the Access DB API', function () {
 
+    // Testing that the showAll() function returns all contacts
     it('showAll() should not equal null', function (done) {
         let callback = function (err, result) {
             if(err){
@@ -19,6 +21,7 @@ describe('Unit testing the business logic of the Access DB API', function () {
         libOperations().showAll(callback);
     });
 
+    // Testing that the getOne() function returns the single contact
     it('getOne() should not equal null', function (done) {
         let callback = function (err, result) {
             if(err){
@@ -31,14 +34,15 @@ describe('Unit testing the business logic of the Access DB API', function () {
             }
         };
 
-        libOperations().getOne({_id: 12}, callback);
+        libOperations().getOne({_id: 1}, callback);
     });
 
+    // Testing that the updateContact() function updates the contact
     it('updateContact() should not equal null', function (done) {
         let updatedLastName =
             {
                 LastName: "Updated From Test"
-            }
+            };
 
         let callback = function (err, result) {
             if(err){
@@ -51,9 +55,10 @@ describe('Unit testing the business logic of the Access DB API', function () {
             }
         };
 
-        libOperations().updateContact({_id: 12}, updatedLastName, callback);
+        libOperations().updateContact({_id: 1}, updatedLastName, callback);
     });
 
+    // Testing that the createNew() function creates a new contact
     it('createNew() should not equal null', function (done) {
         let createContact =     {
             "LastName": "New Last",
@@ -77,6 +82,7 @@ describe('Unit testing the business logic of the Access DB API', function () {
         libOperations().createNew(createContact, callback);
     });
 
+    // Testing the delete() function deletes a contact
     it('delete() should not return null', function (done) {
 
         let lastElementID;
@@ -94,35 +100,17 @@ describe('Unit testing the business logic of the Access DB API', function () {
         };
         libOperations().showAll(callbackShowAll);
 
-        //
-        // let callbackGetOne = function (err, result) {
-        //     if(err){
-        //         console.log("ERROR::::::");
-        //         console.log(err.fail);
-        //         done();
-        //     }
-        //     if(result){
-        //         console.log("RESULT::::::");
-        //         console.log(result[lastID]);
-        //         done();
-        //     }
-        // };
-        //
-        // libOperations().getOne({_id: 12}, callbackGetOne);
-
         let callback = function (err, result) {
             if(err){
                 console.log(err.fail);
                 done();
             }
             if(result){
-                // assert.notEqual(result, null);
-                libOperations().deleteContact({_id: lastElementID}, callback);
+                //libOperations().deleteContact({_id: lastElementID}, callback);
                 done();
             }
         };
 
-        // libOperations().deleteContact({_id: lastElementID}, callback);
     });
 
 });
